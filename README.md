@@ -27,8 +27,9 @@ src/
 ├── schemas/          # Zod schemas for explicit runtime validation
 ├── utils/            # General-purpose utility functions
 └── tests/            # Comprehensive testing suite
-    ├── unit/         # Unit and integration tests (Vitest)
-    └── e2e/          # End-to-end tests (Playwright)
+    ├── unit/         # Unit tests for utilities, hooks, and components
+    ├── e2e/          # End-to-end tests using Playwright
+    └── setup.ts      # Test setup file for Vitest
 ```
 
 ## Quick Start
@@ -100,13 +101,43 @@ Before starting tasks, explicitly reflect to ensure tasks are optimally sized:
 
 If unclear, explicitly break down tasks or seek human clarification.
 
+## ESLint Configuration
+
+The project uses a modern flat ESLint configuration in `eslint.config.mjs` with multiple plugins for code quality:
+
+- **@typescript-eslint**: Strict type-checking and TypeScript best practices
+- **eslint-plugin-security**: Identifies potential security vulnerabilities
+- **eslint-plugin-sonarjs**: Detects code smells and maintainability issues
+- **eslint-plugin-react-hooks**: Enforces React Hooks rules
+- **eslint-plugin-import**: Ensures proper import organization
+- **eslint-plugin-jsdoc**: Enforces documentation standards
+
+Key rules enforce:
+- Explicit function return types
+- No floating promises or unhandled rejections
+- JSDoc documentation for functions and classes
+- Proper import ordering and organization
+- Security vulnerability detection
+- Code complexity limitations
+
+## CI/CD Configuration
+
+The project includes GitHub Actions CI workflow (`.github/workflows/ci.yml`) that:
+- Runs ESLint to ensure code quality
+- Performs TypeScript typechecking
+- Executes unit/integration tests (Vitest)
+- Runs end-to-end tests (Playwright)
+- Builds the project for production
+
+This ensures all code changes meet the project's strict quality standards before being merged.
+
 ## Roadmap & Future Enhancements
 
 Upcoming explicit improvements:
 
-- **CI/CD Automation (GitHub Actions)**: Explicitly automate testing, linting, and deployments.
-- **Extended Documentation**: Further explicit examples and guides.
-- **Continuous Refinement of Cursor Rules**: Explicitly automate and enforce coding standards.
+- **Enhanced CI/CD Pipeline**: Add deployment steps and performance benchmarking
+- **Extended Documentation**: Further explicit examples and guides
+- **Continuous Refinement of Cursor Rules**: Explicitly automate and enforce coding standards
 
 ## Contributing
 
