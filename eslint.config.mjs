@@ -24,6 +24,7 @@ export default [
       import: importPlugin,
       sonarjs,
       "@typescript-eslint": tseslint,
+      jsdoc: (await import('eslint-plugin-jsdoc')).default,
     },
     rules: {
       // React Hooks
@@ -47,9 +48,19 @@ export default [
 
       // TypeScript ESLint (explicitly recommended)
       "@typescript-eslint/no-explicit-any": "error",
-      "@typescript-eslint/explicit-function-return-type": "warn",
+      "@typescript-eslint/explicit-function-return-type": ["warn", { "allowExpressions": true }],
       "@typescript-eslint/no-floating-promises": "error",
       "@typescript-eslint/no-misused-promises": "error",
+
+      // JSDoc
+      "jsdoc/require-jsdoc": ["warn", {
+        "require": {
+          "FunctionDeclaration": true,
+          "MethodDefinition": true,
+          "ClassDeclaration": true,
+          "ArrowFunctionExpression": false,
+        }
+      }],
 
       // General rules
       "no-console": ["warn", { allow: ["warn", "error"] }],
