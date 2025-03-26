@@ -1,0 +1,158 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# General Coding Standards & Best Practices
+
+This document explicitly describes strict standards that the AI coding agent must consistently follow, maximizing safety, maintainability, correctness, and productivity. Use this as a reference for every coding task.
+
+---
+
+## Reflect and Ensure Optimal Task Size
+
+Before starting work on any new task, explicitly reflect and evaluate if the task meets the criteria of being optimally sized:
+
+- **Clearly Defined**: Task description explicitly includes expected outcomes, context, and any constraints.
+- **Small & Atomic**: Task explicitly addresses a single responsibility or small change.  
+  - Can be explicitly tested independently following TDD.
+- **Fully Actionable**: Task can be explicitly completed without additional context, assumptions, or future tasks.
+
+If the these criteria explicitly:
+
+- **ly**.
+- **Break down the task explicitly into smaller, clearly defined tasks**.
+- **Explicitly ask clarifying questions** if any ambiguity or uncertainty remains.
+
+Only proceed explicitly once the task is clearly optimal in size, specificity, and clarity.
+
+---
+
+## 1. Always Adhere to ESLint and TypeScript Rules
+
+### Strict ESLint Compliance
+
+- Never explicitly ignore ESLint rules defined in [eslint.config.mjs](mdc:@eslint.config.mjs).
+- Always explicitly ensure your code passes linting without warnings or errors.
+- Frequently verify compliance, paying special attention to rules related to:
+  - Security (`eslint-plugin-security`)
+  - Maintainability (`eslint-plugin-sonarjs`)
+  - React Hooks (`eslint-plugin-react-hooks`)
+  - Imports (`eslint-plugin-import`)
+  - Documentation (`eslint-plugin-jsdoc`)
+
+### Explicit TypeScript Compliance
+
+- Strictly adhere to all compiler rules in [tsconfig.json](mdc:@tsconfig.json).
+- Explicitly avoid using the `any` type unless absolutely necessary, clearly documenting your rationale.
+- Frequently run type checks explicitly to verify full compliance:
+
+```bash
+npm run lint
+npm run typecheck
+```
+
+### ESLint Rules Reference
+@eslint.config.mjs
+
+### TypeScript Rules Reference
+@tsconfig.json
+
+---
+
+## 2. Mandatory Test-Driven Development (TDD) Workflow
+
+Every new feature or modification must explicitly follow these TDD steps:
+
+1. **Red**: Explicitly write failing tests first, clearly describing expected behavior.
+2. **Green**: Implement the minimum required code explicitly to pass the tests.
+3. **Refactor**: Explicitly improve the code quality and readability without breaking existing tests.
+
+Always explicitly verify tests with:
+
+```bash
+npm run test           # Vitest (unit/integration tests)
+npm run test:e2e       # Playwright (end-to-end tests)
+```
+
+---
+
+## 3. Structured Logging & Explicit Error Handling
+
+- Explicitly handle every asynchronous or potentially failing operation using structured error handling patterns.
+- Explicitly use the project's structured logger located at [src/lib/logger.ts](mdc:@src/lib/logger.ts) for error logs and significant events.
+
+### Recommended Error Handling Pattern
+
+```typescript
+import logger from '@/lib/logger';
+
+async function performAsyncTask() {
+  try {
+    // Async operation here
+  } catch (error) {
+    logger.error({ error, context: 'explicit context' }, 'Explicit descriptive error message');
+    throw new Error('Clear, explicit error message', { cause: error });
+  }
+}
+```
+
+---
+
+## 4. Practical JSDoc Documentation
+
+Explicitly document using JSDoc in the following cases:
+
+- Every exported component, hook, or function.
+- Complex logic or non-obvious implementations that benefit from clear explanations.
+
+Avoid explicitly documenting trivial code to prevent unnecessary overhead.
+
+### Example JSDoc Standard
+
+```typescript
+/**
+ * Retrieves user details from the API by user ID.
+ *
+ * @param userId - The unique identifier of the user.
+ * @returns User object containing user details.
+ * @throws Throws explicitly if the API request fails.
+ */
+export async function fetchUser(userId: string): Promise<User> { /* ... */ }
+```
+
+Always explicitly confirm documentation compliance by running:
+
+```bash
+npm run lint
+```
+
+---
+
+## 5. Controlled Dependencies Management
+
+- Explicitly prefer widely-adopted, actively maintained dependencies.
+- Always explicitly justify clearly the addition of new dependencies.
+- Avoid explicitly using unmaintained, obscure, or unnecessary dependencies.
+
+---
+
+## 6. Explicit Human Clarifications
+
+- Always explicitly ask clarifying questions if the provided instructions are ambiguous or incomplete.
+- Never explicitly guess if unsure; always seek explicit clarification.
+
+---
+
+## Final Checks Before Completion
+
+Before marking a task complete, explicitly verify:
+
+- ESLint (`npm run lint`) passes without errors.
+- TypeScript (`npm run typecheck`) checks pass cleanly.
+- Tests (`npm run test` and `npm run test:e2e`) explicitly pass.
+- Structured logging and explicit error handling rules are explicitly followed.
+- JSDoc documentation explicitly meets standards without ESLint warnings.
+- Task size and specificity explicitly meet optimal task criteria.
+
+If any checks fail explicitly, immediately correct the implementation to fully comply.
