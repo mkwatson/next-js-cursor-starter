@@ -6,49 +6,57 @@ import reactHooks from "eslint-plugin-react-hooks";
 import security from "eslint-plugin-security";
 import importPlugin from "eslint-plugin-import";
 import sonarjs from "eslint-plugin-sonarjs";
+import tseslint from "@typescript-eslint/eslint-plugin";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
+const compat = new FlatCompat({ baseDirectory: __dirname });
 
 export default [
-  ...compat.extends("next/core-web-vitals", "next/typescript"),
+  ...compat.extends(
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended-type-checked"
+  ),
   {
     plugins: {
       "react-hooks": reactHooks,
       security,
       import: importPlugin,
       sonarjs,
+      "@typescript-eslint": tseslint,
     },
     rules: {
-      // React hooks rules
+      // React Hooks
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "warn",
 
-      // Security rules
+      // Security
       "security/detect-object-injection": "error",
-      "security/detect-non-literal-regexp": "warn",
       "security/detect-eval-with-expression": "error",
 
-      // Import rules
+      // Imports
       "import/no-unresolved": "error",
-      "import/no-duplicates": "warn",
       "import/order": [
         "warn",
-        {
-          "groups": ["builtin", "external", "internal", ["parent", "sibling", "index"]],
-          "newlines-between": "always"
-        }
+        { groups: ["builtin", "external", "internal", ["parent", "sibling", "index"]], "newlines-between": "always" }
       ],
 
-      // General best practices
-      "no-console": ["warn", { "allow": ["warn", "error"] }],
-      "no-debugger": "error",
+      // SonarJS
       "sonarjs/no-duplicate-string": "warn",
       "sonarjs/cognitive-complexity": ["warn", 15],
+
+      // TypeScript ESLint (explicitly recommended)
+      "@typescript-eslint/no-explicit-any": "error",
+      "@typescript-eslint/explicit-function-return-type": "warn",
+
+      // General rules
+      "no-console": ["warn", { allow: ["warn", "error"] }],
+      "no-debugger": "error",
+    },
+    languageOptions: {
+      parserOptions: {
+        project: ["./tsconfig.json"],
+      },
     },
   },
 ];
