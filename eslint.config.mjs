@@ -48,6 +48,8 @@ export default [
       // TypeScript ESLint (explicitly recommended)
       "@typescript-eslint/no-explicit-any": "error",
       "@typescript-eslint/explicit-function-return-type": "warn",
+      "@typescript-eslint/no-floating-promises": "error",
+      "@typescript-eslint/no-misused-promises": "error",
 
       // General rules
       "no-console": ["warn", { allow: ["warn", "error"] }],
