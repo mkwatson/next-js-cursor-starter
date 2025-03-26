@@ -1,80 +1,113 @@
 # Next.js AI-Agent Starter
 
-This Next.js project is specifically configured to enable AI coding agents to generate safe, maintainable, understandable, and production-quality code using Test-Driven Development (TDD).
+This Next.js project is explicitly designed and configured to enable AI coding agents to generate safe, maintainable, understandable, and production-quality code through structured Test-Driven Development (TDD), strict coding standards, and clear task-reflection guidelines.
 
 ## Key Guardrails & Features
 
-The repository includes robust configurations designed to enforce best practices automatically:
+The project includes strict, automated guardrails and explicit standards:
 
-- **Strict TypeScript Configuration**: Comprehensive compile-time checks to ensure type safety and explicit code.
-- **Enhanced ESLint Setup**: Advanced static analysis using plugins for security (`eslint-plugin-security`), maintainability (`eslint-plugin-sonarjs`), React hooks, consistent module imports, and strict TypeScript rules.
-- **Runtime Schema Validation (Zod)**: Ensures runtime correctness of data structures and API responses.
-- **Improved Built-in Typings (ts-reset)**: Automatically strengthens TypeScript's built-in typings for safer defaults.
-- **Pattern Matching (ts-pattern)**: Offers readable, expressive conditionals and reduces complexity.
-- **Comprehensive Testing**: Full-stack testing with Vitest (unit/integration), React Testing Library (component tests), and Playwright (E2E tests).
+- **Strict TypeScript Configuration**: Ensures type safety, clear explicitness, and robust compile-time checks.
+- **Advanced ESLint Setup**: Powerful static analysis enforcing security (`eslint-plugin-security`), maintainability (`eslint-plugin-sonarjs`), React hooks compliance, import consistency, JSDoc documentation, and TypeScript best practices.
+- **Runtime Schema Validation (Zod)**: Guarantees correctness and safety of runtime data structures and API responses.
+- **Improved Built-in Typings (ts-reset)**: Automatically strengthens TypeScript's default typings.
+- **Pattern Matching (ts-pattern)**: Provides expressive and readable conditional logic.
+- **Comprehensive Testing Suite**: Robust testing frameworks covering unit/integration tests (Vitest), component-level tests (React Testing Library), and end-to-end tests (Playwright).
+- **Structured Logging & Explicit Error Handling**: Clearly defined logging patterns using `pino` and explicit error-handling standards.
+
+## Explicit Project Structure
+
+The codebase strictly follows a clear project structure under the `src/` directory:
+
+```
+src/
+├── app/              # Next.js App Router components and layouts
+├── components/       # Reusable React components
+├── hooks/            # Custom React hooks
+├── lib/              # Shared libraries and utilities (e.g., structured logging)
+├── schemas/          # Zod schemas for explicit runtime validation
+├── utils/            # General-purpose utility functions
+└── tests/            # Comprehensive testing suite
+    ├── unit/         # Unit and integration tests (Vitest)
+    └── e2e/          # End-to-end tests (Playwright)
+```
 
 ## Quick Start
 
+Explicitly install dependencies and run development commands:
+
 ```bash
 npm install
-npm run dev             # Start the development server
-npm run lint            # Run ESLint checks
-npm run test            # Run unit and integration tests
-npm run test:e2e        # Run end-to-end tests with Playwright
-npm run build           # Build production-ready code
+npm run dev              # Start development server
+npm run lint             # Run ESLint compliance checks
+npm run test             # Run unit and integration tests (Vitest)
+npm run test:e2e         # Run end-to-end tests (Playwright)
+npm run build            # Build optimized production-ready code
+npm run typecheck        # Explicitly check TypeScript compliance
 ```
 
-Visit [http://localhost:3000](http://localhost:3000) to see your app in action.
+Open [http://localhost:3000](http://localhost:3000) to access your application locally.
 
-## AI Coding Agent Workflow (TDD)
+## AI Coding Agent Workflow (Explicit TDD)
 
-This project explicitly uses Test-Driven Development to guide AI coding agents effectively:
+This project explicitly employs TDD to guide AI agents in producing robust software:
 
-1. **Define Requirements Clearly**: Explicitly describe the desired functionality.
-2. **Write the Test First (Red)**: Create failing unit/integration tests before implementation.
-3. **Generate Minimal Implementation (Green)**: Instruct the AI agent to implement the simplest solution passing tests.
-4. **Refactor**: Use the AI agent to iteratively improve the implementation without breaking tests.
-5. **Expand Tests & Functionality**: Continuously add tests to ensure robust functionality and coverage.
+1. **Reflect on Task Size and Clarity**: Always explicitly ensure tasks are clearly defined, optimally sized, actionable, and testable.
+2. **Write Failing Tests (Red)**: Clearly define explicit expectations in tests before implementation.
+3. **Minimal Implementation (Green)**: Implement the simplest explicit solution to pass tests.
+4. **Refactor Explicitly**: Improve code readability and maintainability explicitly without breaking tests.
+5. **Expand Tests & Functionality Explicitly**: Continuously and explicitly add further tests and functionality for comprehensive coverage.
 
-### Recommended Testing Tools:
-- **Vitest**: Fast unit/integration testing with JS/TS support.
-- **React Testing Library**: Component-level testing to ensure reliable UI behaviors.
-- **Playwright**: End-to-end testing to verify complete user workflows and application stability.
+### Recommended Testing Tools
 
-## Recommended Best Practices
+- **Vitest**: Fast, reliable JS/TS testing for unit/integration.
+- **React Testing Library**: Reliable component-level testing.
+- **Playwright**: Explicit end-to-end testing for user workflows.
 
-To maximize the quality and safety of generated code, follow these guidelines:
+## Explicit Best Practices & Standards
 
-- Always validate external data using explicit Zod schemas.
-- Prefer `ts-pattern` for handling complex conditional logic.
-- Regularly run static analysis (`npm run lint`) to proactively maintain code quality.
-- Follow structured commit messages for clarity and maintainability.
-- Ensure structured logging and explicit error handling.
+Follow these explicitly enforced guidelines:
 
-## Structured Logging & Error Handling
+- **Runtime Validation**: Explicitly validate external data using Zod schemas.
+- **Structured Logging and Errors**: Consistently log structured events and explicitly handle errors.
+- **Clear Conditional Logic**: Explicitly use `ts-pattern` for readability.
+- **Regular ESLint & Type Checks**: Run compliance explicitly and frequently (`npm run lint`, `npm run typecheck`).
+- **Structured Commits**: Clearly document commits explicitly.
 
-This project uses structured logging (`pino`) to improve observability and debugging clarity. Always follow this standardized error handling pattern:
+### Structured Logging & Error Handling Example
+
+Use this explicit standard pattern:
 
 ```typescript
 import logger from '@/lib/logger';
 
-async function example() {
+async function fetchData() {
   try {
-    // Your async operation
+    // Explicit async operation
   } catch (error) {
-    logger.error({ error }, 'Descriptive error context');
-    throw new Error('Clear, user-friendly error message', { cause: error });
+    logger.error({ error }, 'Explicit error message');
+    throw new Error('Clear, user-facing message', { cause: error });
   }
 }
+```
 
-## Roadmap & Next Steps
+## Explicit Task Reflection Guidelines
 
-Upcoming additions to further strengthen code quality include:
+Before starting tasks, explicitly reflect to ensure tasks are optimally sized:
 
-- CI/CD pipeline integration (GitHub Actions) for automated linting, testing, and deployment.
-- Defined documentation standards (JSDoc) and explicit project architecture conventions.
-- Cursor project rules for automated enforcement of best practices.
+- Clearly defined and explicit outcomes.
+- Single responsibility, explicitly testable via TDD.
+- Explicitly actionable without additional context or future tasks.
+
+If unclear, explicitly break down tasks or seek human clarification.
+
+## Roadmap & Future Enhancements
+
+Upcoming explicit improvements:
+
+- **CI/CD Automation (GitHub Actions)**: Explicitly automate testing, linting, and deployments.
+- **Extended Documentation**: Further explicit examples and guides.
+- **Continuous Refinement of Cursor Rules**: Explicitly automate and enforce coding standards.
 
 ## Contributing
 
-Contributions and improvements are welcome! Please follow a structured approach for commits and pull requests, clearly stating the intent and scope of changes.
+Explicitly follow structured commits and document clearly the scope and intent of your changes. Contributions explicitly improving clarity, maintainability, and correctness are highly encouraged!
