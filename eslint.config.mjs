@@ -5,6 +5,7 @@ import { FlatCompat } from "@eslint/eslintrc";
 import reactHooks from "eslint-plugin-react-hooks";
 import security from "eslint-plugin-security";
 import importPlugin from "eslint-plugin-import";
+import sonarjs from "eslint-plugin-sonarjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -20,6 +21,7 @@ export default [
       "react-hooks": reactHooks,
       security,
       import: importPlugin,
+      sonarjs,
     },
     rules: {
       // React hooks rules
@@ -44,7 +46,9 @@ export default [
 
       // General best practices
       "no-console": ["warn", { "allow": ["warn", "error"] }],
-      "no-debugger": "error"
+      "no-debugger": "error",
+      "sonarjs/no-duplicate-string": "warn",
+      "sonarjs/cognitive-complexity": ["warn", 15],
     },
   },
 ];

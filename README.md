@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js AI-Agent Starter
 
-## Getting Started
+This Next.js project is specifically configured to enable AI coding agents to generate safe, maintainable, understandable, and production-quality code.
 
-First, run the development server:
+## Key Guardrails & Features
+
+The repository includes robust configurations designed to enforce best practices automatically:
+
+- **Strict TypeScript Configuration**: Comprehensive compile-time checks to ensure type safety and explicit code.
+- **Enhanced ESLint Setup**: Advanced static analysis using plugins for security (`eslint-plugin-security`), maintainability (`eslint-plugin-sonarjs`), React hooks, and consistent module imports.
+- **Runtime Schema Validation (Zod)**: Ensures runtime correctness of data structures and API responses.
+- **Improved Built-in Typings (ts-reset)**: Automatically strengthens TypeScript's built-in typings for safer defaults.
+- **Pattern Matching (ts-pattern)**: Offers readable, expressive conditionals and reduces complexity.
+
+## Quick Start
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev          # Start the development server
+npm run lint         # Run ESLint checks
+npm run build        # Build production-ready code
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit [http://localhost:3000](http://localhost:3000) to see your app in action.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Recommended Best Practices
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To maximize the quality and safety of generated code, follow these guidelines:
 
-## Learn More
+- Always validate external data using explicit Zod schemas.
+- Prefer `ts-pattern` for handling complex conditional logic.
+- Regularly run static analysis (`npm run lint`) to proactively maintain code quality.
+- Follow structured commit messages for clarity and maintainability.
 
-To learn more about Next.js, take a look at the following resources:
+## Roadmap & Next Steps
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Upcoming additions to further strengthen code quality include:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Comprehensive automated testing (unit, integration, and E2E tests).
+- CI/CD pipeline integration (GitHub Actions) for automated linting, testing, and deployment.
+- Standardized error handling and logging strategies.
+- Defined project architecture and documentation standards.
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contributions and improvements are welcome! Please follow a structured approach for commits and pull requests, clearly stating the intent and scope of changes.
